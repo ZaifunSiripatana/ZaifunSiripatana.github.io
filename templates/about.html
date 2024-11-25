@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}เกี่ยวกับ | ระบบวิเคราะห์ไข่พยาธิ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="about-section">
+        <div class="about-header">
+            <h1 class="main-title">เกี่ยวกับโครงการ</h1>
+            <div class="about-subtitle">
+                <i class="fas fa-microscope"></i>
+                <span>ระบบวิเคราะห์ไข่พยาธิด้วย AI</span>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="about-description">
+                <p>ระบบวิเคราะห์ไข่พยาธิด้วย AI เป็นโครงการที่พัฒนาขึ้นเพื่อช่วยในการวินิจฉัยชนิดของไข่พยาธิจากภาพถ่ายกล้องจุลทรรศน์ โดยใช้เทคโนโลยี Deep Learning</p>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h2></i><br> คุณสมบัติของระบบ</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><br><i class="fas fa-bolt"></i> รวดเร็ว</h3>
+                        <p>วิเคราะห์ภาพได้อย่างรวดเร็วและแม่นยำ</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><br><i class="fas fa-image"></i> หลากหลายรูปแบบ</h3>
+                        <p>รองรับไฟล์ภาพหลายรูปแบบ</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><br><i class="fas fa-info-circle"></i> ข้อมูลครบถ้วน</h3>
+                        <p>แสดงข้อมูลเพิ่มเติมเกี่ยวกับพยาธิแต่ละชนิด</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><br><i class="fas fa-laptop"></i> ใช้งานง่าย</h3>
+                        <p>ใช้งานง่ายผ่านเว็บบราวเซอร์</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Team -->
+            <div class="team-section">
+                <h2><br><i class="fas fa-users"></i> ทีมพัฒนา</h2>
+                <div class="team-info">
+                    <div class="team-card">
+                        <div class="organization">
+                            <div class="org-info">
+                                <h3>ศูนย์บริการตรวจสอบและรับรองมาตรฐาน</h3>
+                                <p>คณะวิทยาศาสตร์</p>
+                            </div>
+                        </div>
+                        <div class="team-description">
+                            <p>พัฒนาโดยนักศึกษาสหกิจ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* About Section Styles */
+.about-section {
+    padding: 2rem 0;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-description {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+/* Features Section */
+.features-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.features-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card {
+    padding: 1.5rem;
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: var(--secondary-color);
+}
+
+/* Team Section */
+.team-section {
+    margin: 3rem 0;
+}
+
+.team-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.team-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.org-logo {
+    width: 80px;
+    height: auto;
+}
+
+.org-info h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.org-info p {
+    color: var(--secondary-color);
+}
+
+.team-description {
+    text-align: center;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .organization {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .org-logo {
+        width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

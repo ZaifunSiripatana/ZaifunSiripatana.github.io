@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ระบบวิเคราะห์ไข่พยาธิ{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" class="nav-logo">
+                <span class="nav-title">ระบบวิเคราะห์ไข่พยาธิ</span>
+            </div>
+            <button class="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                    <i class="fas fa-home"></i> หน้าหลัก
+                </a>
+                <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                    <i class="fas fa-info-circle"></i> เกี่ยวกับ
+                </a>
+                <a href="{{ url_for('help') }}" class="nav-link {% if request.endpoint == 'help' %}active{% endif %}">
+                    <i class="fas fa-question-circle"></i> วิธีใช้งาน
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-university"></i> คณะวิทยาศาสตร์</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> มหาวิทยาลัยสงขลานครินทร์</p>
+                    <p><i class="fas fa-phone"></i> โทร: 074 288 022</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3><i class="fas fa-link"></i> ลิงก์ที่เกี่ยวข้อง</h3>
+                    <a href="https://www.sci.psu.ac.th" class="footer-link">
+                        <i class="fas fa-external-link-alt"></i> คณะวิทยาศาสตร์
+                    </a>
+                    <a href="https://ced.sci.psu.ac.th" class="footer-link">
+                        <i class="fas fa-external-link-alt"></i> ศูนย์บริการตรวจสอบและรับรองมาตรฐาน คณะวิทยาศาสตร์
+                    </a>
+                </div>
+
+                <div class="footer-section">
+                    <h3><i class="fas fa-clock"></i> เวลาทำการ</h3>
+                    <p><i class="fas fa-calendar-alt"></i> จันทร์ - ศุกร์</p>
+                    <p><i class="far fa-clock"></i> 08:30 - 16:30 น.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/cmsaSci/" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> เกี่ยวกับระบบ</h3>
+                    <p>ระบบวิเคราะห์ไข่พยาธิด้วย AI พัฒนาขึ้นเพื่อช่วยในการวินิจฉัยเบื้องต้นสำหรับบุคลากรและนักศึกษาวิทยาศาสตร์</p>
+                    <p class="version">Version 1.0.0</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; {{ now.year }} ระบบวิเคราะห์ไข่พยาธิ | พัฒนาโดย นักศึกษาสหกิจ ณ ศูนย์บริการตรวจสอบและรับรองมาตรฐาน คณะวิทยาศาสตร์
+                </p>
+                <div class="footer-links">
+                    <a href="#" class="footer-bottom-link">นโยบายความเป็นส่วนตัว</a>
+                    <a href="#" class="footer-bottom-link">เงื่อนไขการใช้งาน</a>
+                    <a href="#" class="footer-bottom-link">ติดต่อเรา</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

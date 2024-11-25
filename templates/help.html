@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block title %}วิธีใช้งาน | ระบบวิเคราะห์ไข่พยาธิ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="help-section">
+        <h1 class="main-title">วิธีการใช้งานระบบ</h1>
+
+        <!-- ขั้นตอนการใช้งาน -->
+        <div class="help-content">
+            <div class="help-card">
+                <div class="step-content">
+                    <h3>1. เตรียมภาพถ่าย</h3>
+                    <p>เตรียมภาพถ่ายจากกล้องจุลทรรศน์ที่มีคุณภาพดี:</p>
+                    <ul>
+                        <li>ภาพชัดเจน ไม่เบลอ</li>
+                        <li>ถ่ายในระยะที่เหมาะสม</li>
+                        <li>มีแสงสว่างเพียงพอ</li>
+                        <li>ไม่มีสิ่งรบกวนในภาพ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="step-content">
+                    <h3><br>2. อัพโหลดภาพ</h3>
+                    <p>อัพโหลดภาพเข้าสู่ระบบ:</p>
+                    <ul>
+                        <li>รองรับไฟล์ภาพ JPG, JPEG, PNG</li>
+                        <li>ขนาดไฟล์ไม่เกิน 16MB</li>
+                        <li>สามารถลากไฟล์มาวางหรือคลิกเลือกไฟล์</li>
+                        <li>สามารถดูตัวอย่างภาพก่อนวิเคราะห์</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="step-content">
+                    <h3><br>3. วิเคราะห์ภาพ</h3>
+                    <p>ระบบจะวิเคราะห์ภาพโดยอัตโนมัติ:</p>
+                    <ul>
+                        <li>ใช้ AI ในการวิเคราะห์ชนิดของไข่พยาธิ</li>
+                        <li>แสดงผลความแม่นยำในการวิเคราะห์</li>
+                        <li>ใช้เวลาประมวลผลไม่กี่วินาที</li>
+                        <li>แสดงผลการวิเคราะห์ทันทีเมื่อเสร็จสิ้น</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="step-content">
+                    <h3><br>4. ดูผลการวิเคราะห์</h3>
+                    <p>ระบบจะแสดงข้อมูลโดยละเอียด:</p>
+                    <ul>
+                        <li>ชื่อชนิดของพยาธิ (ไทย/อังกฤษ)</li>
+                        <li>ลักษณะสำคัญของไข่พยาธิ</li>
+                        <li>อาการที่อาจพบ</li>
+                        <li>วิธีการป้องกัน</li>
+                        <li>แนวทางการรักษา</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- คำแนะนำเพิ่มเติม -->
+        <div class="additional-info">
+            <h2><br>คำแนะนำเพิ่มเติม</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-camera"></i>
+                    <h4>การถ่ายภาพ</h4>
+                    <ul>
+                        <li>ใช้กำลังขยาย 10x หรือ 40x</li>
+                        <li>ปรับความชัดของภาพให้เหมาะสม</li>
+                        <li>ควรมีแสงสว่างเพียงพอ</li>
+                        <li>หลีกเลี่ยงการสั่นไหวขณะถ่ายภาพ</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h4>ข้อควรระวัง</h4>
+                    <ul>
+                        <li>ตรวจสอบคุณภาพของภาพก่อนวิเคราะห์</li>
+                        <li>ควรใช้ผลวิเคราะห์ประกอบการวินิจฉัยเท่านั้น</li>
+                        <li>ปรึกษาแพทย์หรือผู้เชี่ยวชาญเสมอ</li>
+                        <li>เก็บรักษาตัวอย่างไว้เพื่อการตรวจสอบซ้ำ</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-user-md"></i>
+                    <h4>คำแนะนำทางการแพทย์</h4>
+                    <ul>
+                        <li>ใช้เป็นเครื่องมือช่วยในการวินิจฉัยเบื้องต้น</li>
+                        <li>ไม่ควรใช้ทดแทนการวินิจฉัยจากแพทย์</li>
+                        <li>ควรทำการตรวจยืนยันด้วยวิธีมาตรฐาน</li>
+                        <li>ปฏิบัติตามคำแนะนำของแพทย์เสมอ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ถาม-ตอบ -->
+        <div class="faq-section">
+            <h2><br>คำถามที่พบบ่อย</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>ระบบรองรับไฟล์ภาพชนิดใดบ้าง?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ระบบรองรับไฟล์ภาพประเภท JPG, JPEG และ PNG โดยขนาดไฟล์ต้องไม่เกิน 16MB</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>ความแม่นยำในการวิเคราะห์เป็นอย่างไร?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ระบบมีความแม่นยำในการวิเคราะห์สูง แต่ผลการวิเคราะห์ควรใช้ประกอบการวินิจฉัยจากผู้เชี่ยวชาญเท่านั้น</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>สามารถบันทึกผลการวิเคราะห์ได้หรือไม่?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>สามารถบันทึกผลการวิเคราะห์ได้โดยการพิมพ์หน้าผลการวิเคราะห์ หรือบันทึกเป็น PDF</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Help Section Styles */
+.help-section {
+    padding: 2rem 0;
+}
+
+.help-content {
+    margin: 2rem 0;
+}
+
+.help-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    gap: 2rem;
+}
+
+.step-number {
+    background-color: var(--primary-color);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.step-content ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.step-content li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.step-content li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Additional Info Styles */
+.additional-info {
+    margin: 3rem 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.info-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.info-card li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.info-card li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* FAQ Styles */
+.faq-section {
+    margin: 3rem 0;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.faq-question h4 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.faq-answer {
+    padding-left: 2.5rem;
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .help-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .step-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

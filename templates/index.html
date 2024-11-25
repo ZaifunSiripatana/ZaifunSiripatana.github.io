@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}หน้าหลัก | ระบบวิเคราะห์ไข่พยาธิ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="hero-section">
+        <h1 class="main-title">วิเคราะห์ไข่พยาธิด้วย AI</h1>
+        <p class="subtitle">ระบบวิเคราะห์ภาพถ่ายจากกล้องจุลทรรศน์ด้วยปัญญาประดิษฐ์</p>
+    </section>
+
+    <section class="upload-section">
+        <!-- Upload Container -->
+        <div class="upload-container">
+            <!-- File Upload Form -->
+            <form method="post" enctype="multipart/form-data" id="uploadForm">
+                <div class="upload-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>อัพโหลดรูปภาพ</h3>
+                    <p>ลากไฟล์มาวางที่นี่ หรือ คลิกเพื่อเลือกไฟล์</p>
+                    <input type="file" 
+                           id="fileInput" 
+                           name="file" 
+                           accept="image/jpeg,image/jpg,image/png" 
+                           style="display: none;">
+                </div>
+
+                <!-- Image Preview -->
+                <div class="preview-container" id="previewContainer" style="display: none;">
+                    <img src="" alt="Preview" id="previewImage">
+                    <button type="button" class="remove-btn" id="removeBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Upload Info -->
+                <div class="upload-info">
+                    <div class="info-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h4>ข้อแนะนำการอัพโหลด</h4>
+                        <ul>
+                            <li>รองรับไฟล์ภาพ JPG, JPEG, PNG</li>
+                            <li>ขนาดไฟล์ไม่เกิน 16MB</li>
+                            <li>ภาพควรชัดเจน ไม่เบลอ</li>
+                            <li>ถ่ายภาพในระยะที่เหมาะสม</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <button type="button" 
+                        class="analyze-btn" 
+                        id="analyzeBtn" 
+                        disabled>
+                    <i class="fas fa-microscope"></i>
+                    วิเคราะห์ภาพ
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>กำลังวิเคราะห์...</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const previewContainer = document.getElementById('previewContainer');
+    const previewImage = document.getElementById('previewImage');
+    const removeBtn = document.getElementById('removeBtn');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    // Click to upload
+    dropZone.onclick = () => fileInput.click();
+
+    // File input change
+    fileInput.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            handleFile(file);
+        }
+    };
+
+    // Drag and drop
+    dropZone.ondragover = (e) => {
+        e.preventDefault();
+        dropZone.classList.add('highlight');
+    };
+
+    dropZone.ondragleave = () => {
+        dropZone.classList.remove('highlight');
+    };
+
+    dropZone.ondrop = (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('highlight');
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            handleFile(file);
+        }
+    };
+
+    // Remove preview
+    removeBtn.onclick = () => {
+        fileInput.value = '';
+        previewContainer.style.display = 'none';
+        dropZone.style.display = 'block';
+        analyzeBtn.disabled = true;
+    };
+
+    // Handle file
+    function handleFile(file) {
+        // Check file type
+        if (!file.type.match('image/(jpeg|jpg|png)')) {
+            alert('กรุณาอัพโหลดไฟล์ภาพ JPG, JPEG หรือ PNG เท่านั้น');
+            return;
+        }
+
+        // Check file size
+        if (file.size > 16 * 1024 * 1024) {
+            alert('ขนาดไฟล์ต้องไม่เกิน 16MB');
+            return;
+        }
+
+        // Show preview
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImage.src = e.target.result;
+            previewContainer.style.display = 'block';
+            dropZone.style.display = 'none';
+            analyzeBtn.disabled = false;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Analyze
+    analyzeBtn.onclick = async () => {
+        if (!fileInput.files[0]) return;
+
+        try {
+            loadingOverlay.style.display = 'flex';
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            window.location.href = `/result?${new URLSearchParams(data).toString()}`;
+        } catch (error) {
+            alert(`เกิดข้อผิดพลาด: ${error.message}`);
+        } finally {
+            loadingOverlay.style.display = 'none';
+        }
+    };
+});
+</script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}ผลการวิเคราะห์ | ระบบวิเคราะห์ไข่พยาธิ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="result-section">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>ผลการวิเคราะห์</h2>
+                <div class="confidence-badge">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>ความแม่นยำ: {{ "%.2f"|format(confidence * 100) }}%</span>
+                </div>
+            </div>
+
+            <div class="result-content">
+                <div class="result-image-container">
+                    <img src="{{ url_for('static', filename=image_path) }}" 
+                         alt="ภาพที่วิเคราะห์" 
+                         class="result-image">
+                </div>
+
+                <div class="result-details">
+                    <div class="parasite-header">
+                        <h3>{{ thai_name }}</h3>
+                        <p class="scientific-name">{{ scientific_name }}</p>
+                    </div>
+
+                    <div class="description-section">
+                        <p>{{ description }}</p>
+                    </div>
+
+                    <div class="info-section characteristics">
+                        <h4>
+                            <i class="fas fa-microscope"></i>
+                            ลักษณะสำคัญ
+                        </h4>
+                        <ul>
+                            {% for item in characteristics %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="info-section symptoms">
+                        <h4>
+                            <i class="fas fa-exclamation-circle"></i>
+                            อาการ
+                        </h4>
+                        <ul>
+                            {% for item in symptoms %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="info-section prevention">
+                        <h4>
+                            <i class="fas fa-shield-alt"></i>
+                            การป้องกัน
+                        </h4>
+                        <ul>
+                            {% for item in prevention %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="info-section severity">
+                        <h4>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            ความรุนแรง
+                        </h4>
+                        <p>{{ severity }}</p>
+                    </div>
+
+                    <div class="info-section treatment">
+                        <h4>
+                            <i class="fas fa-pills"></i>
+                            การรักษา
+                        </h4>
+                        <p>{{ treatment }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{{ url_for('index') }}" class="new-analysis-btn">
+                    <i class="fas fa-redo"></i>
+                    วิเคราะห์ภาพใหม่
+                </a>
+                <button onclick="window.print()" class="print-btn">
+                    <i class="fas fa-print"></i>
+                    พิมพ์ผลการวิเคราะห์
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    // Add any result page specific JavaScript here
+    document.addEventListener('DOMContentLoaded', function() {
+        // Example: Fade in the result content
+        const resultContainer = document.querySelector('.result-container');
+        if (resultContainer) {
+            resultContainer.style.opacity = '0';
+            resultContainer.style.transition = 'opacity 0.5s ease-in';
+            setTimeout(() => {
+                resultContainer.style.opacity = '1';
+            }, 100);
+        }
+    });
+</script>
+{% endblock %}
